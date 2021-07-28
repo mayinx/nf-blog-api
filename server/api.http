@@ -1,0 +1,68 @@
+### GET /
+GET http://localhost:4000 HTTP/1.1
+
+### GET /articles => get all articles as an ary of objects in the body of the response => Status Code "200 OK"
+GET http://localhost:4000/articles HTTP/1.1
+
+### POST /articles => create a article with the data coming in the with the request body = Status Code "201 Created"
+### Excample body: {"title": "Soem title", "body": "Some body"}
+POST http://localhost:4000/articles HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Some title",
+  "body": "Some body"
+}
+
+### GET /articles/:id => get specific articcle with the given id as an object in the body of the response - status code if found : 200 ok - otherwise 404 not found
+GET http://localhost:4000/articles/1 HTTP/1.1
+### Not found request
+GET http://localhost:4000/articles/1234234234 HTTP/1.1
+
+
+### PATCH /articles/:id => Update with the id - reponse contains the updated article as an object in its body - status code if found uand updated : 200 ok - otherwise 404 not found
+PATCH http://localhost:4000/articles/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Some new title",
+  "body": "Some new body"
+}
+### Not found request
+PATCH http://localhost:4000/articles/154611 HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Some new title",
+  "body": "Some new body"
+}
+
+
+### DELETE /artciles:id - delete article with the id in the path - respinse has no body  - status code 204 no content
+DELETE http://localhost:4000/articles/6 HTTP/1.1
+#### Not found Request
+DELETE http://localhost:4000/articles/6 HTTP/1.1
+
+
+# ### GET to /
+# GET http://localhost:3001/ HTTP/1.1
+
+# ### GET to /hello
+# GET http://localhost:3001/hello HTTP/1.1
+
+# ### GET to /json
+# GET http://localhost:3001/json HTTP/1.1
+
+# ### POST to /json
+# POST http://localhost:3001/json HTTP/1.1
+# Content-Type: application/json
+
+# {
+#   "name": "Hinz",
+#   "job": "Web-Dev"
+
+# }
+
+# ### POST to /
+# POST http://localhost:3001/ HTTP/1.1
+
